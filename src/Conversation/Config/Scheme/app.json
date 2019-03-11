@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "URL": {
+      "type": "object",
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "uploadFilePreviewUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "Log": {
+      "type": "object",
+      "properties": {
+        "directoryPath": {
+          "type": "string"
+        }
+      }
+    },
+    "Upload": {
+      "type": "object",
+      "properties": {
+        "temporaryDirectoryPath": {
+          "type": "string"
+        }
+      }
+    },
+    "Persistent": {
+      "type": "object",
+      "properties": {
+        "directoryPath": {
+          "type": "string"
+        },
+        "expires": {
+          "type": "string"
+        },
+        "extension": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

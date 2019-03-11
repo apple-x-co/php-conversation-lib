@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "Conversation": {
+      "type": "object",
+      "properties": {
+        "eventHandler": {
+          "type": "object",
+          "properties": {
+            "beforeFilter": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "afterFilter": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "messageText": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "messageImage": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "postback": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "follow": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "unfollow": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "join": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "beacon": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

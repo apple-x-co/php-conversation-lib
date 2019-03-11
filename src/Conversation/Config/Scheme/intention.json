@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "Intention": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "name": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
