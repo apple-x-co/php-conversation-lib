@@ -88,12 +88,16 @@ class FlexBox implements FlexComponentInterface
     }
 
     /**
-     * @param FlexComponentInterface $content
+     * @param FlexComponentInterface|callable $content
      *
      * @return self
      */
     public function addContent($content)
     {
+        if (is_callable($content)) {
+            $content = $content();
+        }
+
         if (is_null($content) ||
             empty($content) ||
             ! is_subclass_of($content, '\Conversation\ConversationMessage\Flex\Component\FlexComponentInterface')) {
