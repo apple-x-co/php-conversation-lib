@@ -1,0 +1,12 @@
+<phpunit bootstrap="./bootstrap.php"
+         colors="true"
+         beStrictAboutCoversAnnotation="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutTestSize="true"
+         beStrictAboutChangesToGlobalState="true">
+    <testsuites>
+        <testsuite name="Conversation Library">
+            <directory>./Conversation/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
