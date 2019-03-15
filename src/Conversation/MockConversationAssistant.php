@@ -22,9 +22,12 @@ use Conversation\ConversationMessage\ConversationTextMessage;
 use Conversation\HTTP\Response;
 use Conversation\Exception\FileNotfoundException;
 use Conversation\ConversationMessageType;
+use Psr\Log\LoggerAwareTrait;
 
 class MockConversationAssistant implements ConversationAssistantInterface
 {
+    use LoggerAwareTrait;
+
     /** @var Configure */
     private $configure;
 
@@ -51,13 +54,12 @@ class MockConversationAssistant implements ConversationAssistantInterface
     }
 
     /**
-     * @param $value
+     * @param mixed $message
+     * @param array $context
      */
-    private function writeLog($value)
+    private function writeLog($message, $context)
     {
-        $file   = new File($this->getLogDirectory()->getPath(), 'mock.log');
-        $logger = new Logger($file);
-        $logger->info($value);
+        $this->logger->info($message, $context);
     }
 
     /**
@@ -225,19 +227,6 @@ class MockConversationAssistant implements ConversationAssistantInterface
         $input = trim(fgets(STDIN));
 
         return $input;
-    }
-
-    /**
-     * @return File
-     */
-    private function getLogDirectory()
-    {
-        $directory = new File($this->configure->read('Log.directoryPath'));
-        if ( ! $directory->exists()) {
-            throw new FileNotfoundException();
-        }
-
-        return $directory;
     }
 
     /**

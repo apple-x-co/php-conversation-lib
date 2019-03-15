@@ -26,11 +26,19 @@ use LINE\LINEBot\Event\MessageEvent\ImageMessage;
 use LINE\LINEBot\Event\MessageEvent\LocationMessage;
 use LINE\LINEBot\Event\MessageEvent\StickerMessage;
 use LINE\LINEBot\Event\PostbackEvent;
+use Psr\Log\LoggerAwareTrait;
 
 class LineConversationAssistant implements ConversationAssistantInterface
 {
+    use LoggerAwareTrait;
+
+    /** @var Configure */
     private $configure;
+
+    /** @var LINEBot */
     private static $linebot = null;
+
+    /** @var array */
     private $events;
 
     /**
@@ -53,13 +61,12 @@ class LineConversationAssistant implements ConversationAssistantInterface
     }
 
     /**
-     * @param $value
+     * @param mixed $message
+     * @param array $context
      */
-    private function writeLog($value)
+    private function writeLog($message, $context)
     {
-        $file   = new File($this->getLogDirectory()->getPath(), 'line.log');
-        $logger = new Logger($file);
-        $logger->info($value);
+        $this->logger->info($message, $context);
     }
 
     /**
@@ -250,19 +257,6 @@ class LineConversationAssistant implements ConversationAssistantInterface
 //
 //        return $uploadFile;
 //    }
-
-    /**
-     * @return File
-     */
-    private function getLogDirectory()
-    {
-        $directory = new File($this->configure->read('Log.directoryPath'));
-        if ( ! $directory->exists()) {
-            throw new FileNotfoundException();
-        }
-
-        return $directory;
-    }
 
 //    /**
 //     * @return File

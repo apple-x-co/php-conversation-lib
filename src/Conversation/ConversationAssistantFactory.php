@@ -10,6 +10,7 @@ namespace Conversation;
 
 
 use Conversation\Exception\ConversationAssistantUnknownException;
+use Conversation\Exception\FileNotfoundException;
 
 class ConversationAssistantFactory
 {
@@ -21,14 +22,40 @@ class ConversationAssistantFactory
      * @return ConversationAssistantInterface
      *
      * @throws ConversationAssistantUnknownException
+     * @throws FileNotfoundException
      */
-    public static function createConversationAssistant($configure, $someone = 'bot')
+    public static function create($configure, $someone = 'line')
     {
-        if ($someone === 'bot') {
-            return new LineConversationAssistant($configure);
+        $assistant = null;
+        if ($someone === 'line') {
+            $assistant = new LineConversationAssistant($configure);
         } elseif ($someone === 'mock') {
-            return new MockConversationAssistant($configure);
+            $assistant = new MockConversationAssistant($configure);
+        } else {
+            throw new ConversationAssistantUnknownException('unknown type');
         }
-        throw new ConversationAssistantUnknownException();
+
+        $file   = new File(static::getLogDirectory($configure)->getPath(), $someone . '.log');
+        $logger = new Logger($file);
+
+        $assistant->setLogger($logger);
+
+        return $assistant;
+    }
+
+    /**
+     * @param Configure $configure
+     *
+     * @return File
+     * @throws FileNotfoundException
+     */
+    private static function getLogDirectory($configure)
+    {
+        $directory = new File($configure->read('Log.directoryPath'));
+        if ( ! $directory->exists()) {
+            throw new FileNotfoundException('not found log directory');
+        }
+
+        return $directory;
     }
 }
