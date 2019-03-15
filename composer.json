@@ -21,8 +21,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Conversation\\": "src/Conversation/",
-      "Tests\\Conversation\\": "tests/Conversation/"
+      "Conversation\\": "src/",
+      "Tests\\Conversation\\": "tests/"
     }
   }
 }

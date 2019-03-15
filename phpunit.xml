@@ -6,7 +6,7 @@
          beStrictAboutChangesToGlobalState="true">
     <testsuites>
         <testsuite name="Conversation Library">
-            <directory>./tests/Conversation/</directory>
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
 </phpunit>
