@@ -8,9 +8,7 @@
 
 namespace Conversation\Exception;
 
-use RuntimeException;
-
-class ConversationException extends RuntimeException
+class ConversationException extends \Exception
 {
 
 }
