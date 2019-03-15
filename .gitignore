@@ -1,2 +1,9 @@
-/vendor
 .env
+
+/vendor/*
+
+/work/*
+!/work/logs/
+/work/logs/*
+
+!.gitkeep
