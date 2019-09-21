@@ -9,7 +9,10 @@
 namespace Conversation\LINE;
 
 
+use DateTime;
+use DateTimeZone;
 use LINE\LINEBot\HTTPClient;
+use LINE\LINEBot\Response;
 
 /**
  * Class LINEBot
@@ -63,5 +66,36 @@ class LINEBot extends \LINE\LINEBot
     {
         $url = sprintf('%s/v2/bot/user/all/richmenu', $this->endpointBase);
         return $this->httpClient->delete($url);
+    }
+
+    /**
+     * @param DateTime $datetime
+     * @return Response
+     */
+    public function getNumberOfInsightMessageDelivery(DateTime $datetime)
+    {
+        $url = $this->endpointBase . '/v2/bot/insight/message/delivery';
+        $datetime->setTimezone(new DateTimeZone('Asia/Tokyo'));
+        return $this->httpClient->get($url, ['date' => $datetime->format('Ymd')]);
+    }
+
+    /**
+     * @param DateTime $datetime
+     * @return Response
+     */
+    public function getNumberOfInsightFollowers(DateTime $datetime)
+    {
+        $url = $this->endpointBase . '/v2/bot/insight/followers';
+        $datetime->setTimezone(new DateTimeZone('Asia/Tokyo'));
+        return $this->httpClient->get($url, ['date' => $datetime->format('Ymd')]);
+    }
+
+    /**
+     * @return Response
+     */
+    public function getNumberOfInsightDemographic()
+    {
+        $url = $this->endpointBase . '/v2/bot/insight/demographic';
+        return $this->httpClient->get($url);
     }
 }

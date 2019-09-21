@@ -107,6 +107,14 @@ class Session implements ConversationPersistentSerializable
     }
 
     /**
+     * @return array
+     */
+    public function getDataKeys()
+    {
+        return array_keys($this->data);
+    }
+
+    /**
      * @return string serialize string
      */
     public function serialize()
