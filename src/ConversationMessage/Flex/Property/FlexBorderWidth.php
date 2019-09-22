@@ -44,7 +44,7 @@ class FlexBorderWidth implements FlexPropertyInterface
      */
     public static function none()
     {
-        return new self(self::NONE());
+        return new self(self::NONE);
     }
 
     /**
@@ -52,7 +52,7 @@ class FlexBorderWidth implements FlexPropertyInterface
      */
     public static function light()
     {
-        return new self(self::LIGHT());
+        return new self(self::LIGHT);
     }
 
     /**
@@ -60,7 +60,7 @@ class FlexBorderWidth implements FlexPropertyInterface
      */
     public static function normal()
     {
-        return new self(self::NORMAL());
+        return new self(self::NORMAL);
     }
 
     /**
@@ -68,7 +68,7 @@ class FlexBorderWidth implements FlexPropertyInterface
      */
     public static function medium()
     {
-        return new self(self::MEDIUM());
+        return new self(self::MEDIUM);
     }
 
     /**
@@ -76,7 +76,7 @@ class FlexBorderWidth implements FlexPropertyInterface
      */
     public static function semi_bold()
     {
-        return new self(self::SEMI_BOLD());
+        return new self(self::SEMI_BOLD);
     }
 
     /**
@@ -84,6 +84,6 @@ class FlexBorderWidth implements FlexPropertyInterface
      */
     public static function bold()
     {
-        return new self(self::BOLD());
+        return new self(self::BOLD);
     }
 }

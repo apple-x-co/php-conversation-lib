@@ -8,4 +8,4 @@
 
 ## Samples
 
-* [index](./samples/README.md)
+* [Samples](./samples/README.md)

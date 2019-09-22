@@ -392,7 +392,8 @@ class LineFacade
         if ($contents = static::buildFlexComponents($flexBox->getContents())) {
             $box += ['contents' => $contents];
         }
-        if ($flex = $flexBox->getFlex()) {
+        $flex = $flexBox->getFlex();
+        if ($flex !== '' && $flex !== null) {
             $box += ['flex' => $flex];
         }
         if ($flexSpacing = $flexBox->getSpacing()) {
@@ -550,11 +551,27 @@ class LineFacade
             }
             $content += ['contents' => $spans];
         }
-        if ($flex = $flexComponent->getFlex()) {
+        $flex = $flexComponent->getFlex();
+        if ($flex !== '' && $flex !== null) {
             $content += ['flex' => $flex];
         }
         if ($margin = $flexComponent->getMargin()) {
             $content += ['margin' => $margin->getType()];
+        }
+        if ($position = $flexComponent->getPosition()) {
+            $content += ['position' => $position->getType()];
+        }
+        if ($offsetTop = $flexComponent->getOffsetTop()) {
+            $content += ['offsetTop' => $offsetTop];
+        }
+        if ($offsetBottom = $flexComponent->getOffsetBottom()) {
+            $content += ['offsetBottom' => $offsetBottom];
+        }
+        if ($offsetStart = $flexComponent->getOffsetStart()) {
+            $content += ['offsetStart' => $offsetStart];
+        }
+        if ($offsetEnd = $flexComponent->getOffsetEnd()) {
+            $content += ['offsetEnd' => $offsetEnd];
         }
         if ($size = $flexComponent->getSize()) {
             $content += ['size' => $size->getType()];
@@ -637,7 +654,8 @@ class LineFacade
             'url' => $flexImage->getUrl()->getString()
         ];
 
-        if ($flex = $flexImage->getFlex()) {
+        $flex = $flexImage->getFlex();
+        if ($flex !== '' && $flex !== null) {
             $content += ['flex' => $flex];
         }
         if ($margin = $flexImage->getMargin()) {
@@ -682,7 +700,8 @@ class LineFacade
             'action' => static::generateActionBuilder($flexButton->getAction())->buildTemplateAction()
         ];
 
-        if ($flex = $flexButton->getFlex()) {
+        $flex = $flexButton->getFlex();
+        if ($flex !== '' && $flex !== null) {
             $content += ['flex' => $flex];
         }
         if ($margin = $flexButton->getMargin()) {

@@ -22,6 +22,7 @@ class FlexImageAspectRatio implements FlexPropertyInterface
     const ASPECT_3TO4 = '3:4';
     const ASPECT_9TO16 = '9:16';
     const ASPECT_1TO2 = '1:2';
+    const ASPECT_2TO3 = '2:3';
 
     /** @var string */
     private $type;
