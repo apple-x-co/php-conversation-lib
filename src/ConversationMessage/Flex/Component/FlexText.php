@@ -12,7 +12,9 @@ namespace Conversation\ConversationMessage\Flex\Component;
 use Conversation\AbstractConversationAction;
 use Conversation\ConversationMessage\Flex\Property\FlexAlign;
 use Conversation\ConversationMessage\Flex\Property\FlexColor;
+use Conversation\ConversationMessage\Flex\Property\FlexDecoration;
 use Conversation\ConversationMessage\Flex\Property\FlexFontSize;
+use Conversation\ConversationMessage\Flex\Property\FlexFontStyle;
 use Conversation\ConversationMessage\Flex\Property\FlexFontWeight;
 use Conversation\ConversationMessage\Flex\Property\FlexGravity;
 use Conversation\ConversationMessage\Flex\Property\FlexMargin;
@@ -24,6 +26,9 @@ class FlexText implements FlexComponentInterface
 
     /** @var string */
     private $text;
+
+    /** @var FlexSpan[] */
+    private $contents;
 
     /** @var int */
     private $flex;
@@ -55,12 +60,21 @@ class FlexText implements FlexComponentInterface
     /** @var AbstractConversationAction */
     private $action;
 
+    /** @var FlexFontStyle */
+    private $style;
+
+    /** @var FlexDecoration */
+    private $decoration;
+
     /**
      * Text constructor.
      */
     public function __construct()
     {
         $this->componentType = new FlexComponentType(FlexComponentType::TEXT);
+        $this->contents = [];
+        $this->style = new FlexFontStyle(FlexFontStyle::NORMAL);
+        $this->decoration = new FlexDecoration(FlexDecoration::NONE);
     }
 
     /**
@@ -98,6 +112,26 @@ class FlexText implements FlexComponentInterface
     public function setText($text)
     {
         $this->text = $text;
+        return $this;
+    }
+
+    /**
+     * @return FlexSpan[]
+     */
+    public function getContents()
+    {
+        return $this->contents;
+    }
+
+    /**
+     * @param FlexSpan[] $contents
+     *
+     * @return self
+     */
+    public function setContents($contents)
+    {
+        $this->contents = $contents;
+
         return $this;
     }
 
@@ -288,6 +322,46 @@ class FlexText implements FlexComponentInterface
     public function setAction($action)
     {
         $this->action = $action;
+        return $this;
+    }
+
+    /**
+     * @return FlexFontStyle
+     */
+    public function getStyle()
+    {
+        return $this->style;
+    }
+
+    /**
+     * @param FlexFontStyle $style
+     *
+     * @return self
+     */
+    public function setStyle($style)
+    {
+        $this->style = $style;
+
+        return $this;
+    }
+
+    /**
+     * @return FlexDecoration
+     */
+    public function getDecoration()
+    {
+        return $this->decoration;
+    }
+
+    /**
+     * @param FlexDecoration $decoration
+     *
+     * @return self
+     */
+    public function setDecoration($decoration)
+    {
+        $this->decoration = $decoration;
+
         return $this;
     }
 }

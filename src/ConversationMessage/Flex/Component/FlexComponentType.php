@@ -12,6 +12,7 @@ namespace Conversation\ConversationMessage\Flex\Component;
 class FlexComponentType
 {
     const TEXT = 'text';
+    const SPAN = 'span';
     const IMAGE = 'image';
     const BOX = 'box';
     const SEPARATOR = 'separator';

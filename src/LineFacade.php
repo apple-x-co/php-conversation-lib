@@ -40,6 +40,7 @@ use Conversation\ConversationMessage\Flex\Component\FlexIcon;
 use Conversation\ConversationMessage\Flex\Component\FlexImage;
 use Conversation\ConversationMessage\Flex\Component\FlexSeparator;
 use Conversation\ConversationMessage\Flex\Component\FlexSpacer;
+use Conversation\ConversationMessage\Flex\Component\FlexSpan;
 use Conversation\ConversationMessage\Flex\Component\FlexText;
 use Conversation\ConversationMessage\Flex\Container\FlexBlockStyle;
 use Conversation\ConversationMessage\Flex\Container\FlexBubble;
@@ -323,6 +324,9 @@ class LineFacade
     {
         $content = ['type' => 'bubble'];
 
+        if ($size = $flexBubble->getSize()) {
+            $content += ['size' => $size->getType()];
+        }
         if ($direction = $flexBubble->getDirection()) {
             $content += ['direction' => $direction->getType()];
         }
@@ -330,7 +334,11 @@ class LineFacade
             $content += ['header' => static::buildFlexBox($header)];
         }
         if ($hero = $flexBubble->getHero()) {
-            $content += ['hero' => static::buildFlexImageComponent($hero)];
+            if ($hero instanceof FlexImage) {
+                $content += ['hero' => static::buildFlexImageComponent($hero)];
+            } else {
+                $content += ['hero' => static::buildFlexBox($hero)];
+            }
         }
         if ($body = $flexBubble->getBody()) {
             $content += ['body' => static::buildFlexBox($body)];
@@ -340,6 +348,9 @@ class LineFacade
         }
         if ($styles = $flexBubble->getStyles()) {
             $content += ['styles' => static::buildFlexBubbleStyles($styles)];
+        }
+        if (($action = $flexBubble->getAction()) && $builder = static::generateActionBuilder($action)) {
+            $content += ['action' => $builder->buildTemplateAction()];
         }
 
         return $content;
@@ -357,6 +368,27 @@ class LineFacade
             'layout' => $flexBox->getLayout()->getType()
         ];
 
+        if ($backgroundColor = $flexBox->getBackgroundColor()) {
+            $box += ['backgroundColor' => $backgroundColor->getType()];
+        }
+        if ($borderColor = $flexBox->getBorderColor()) {
+            $box += ['borderColor' => $borderColor->getType()];
+        }
+        if ($borderWidth = $flexBox->getBorderWidth()) {
+            $box += ['borderWidth' => $borderWidth->getType()];
+        }
+        if ($cornerRadius = $flexBox->getCornerRadius()) {
+            $box += ['cornerRadius' => $cornerRadius];
+        }
+        if ($width = $flexBox->getWidth()) {
+            $box += ['width' => $width];
+        }
+        if ($height = $flexBox->getHeight()) {
+            $box += ['height' => $height];
+        }
+        if ($cornerRadius = $flexBox->getCornerRadius()) {
+            $box += ['cornerRadius' => $cornerRadius];
+        }
         if ($contents = static::buildFlexComponents($flexBox->getContents())) {
             $box += ['contents' => $contents];
         }
@@ -368,6 +400,36 @@ class LineFacade
         }
         if ($flexMargin = $flexBox->getMargin()) {
             $box += ['margin' => $flexMargin->getType()];
+        }
+        if ($paddingAll = $flexBox->getPaddingAll()) {
+            $box += ['paddingAll' => $paddingAll];
+        }
+        if ($paddingTop = $flexBox->getPaddingTop()) {
+            $box += ['paddingTop' => $paddingTop];
+        }
+        if ($paddingBottom = $flexBox->getPaddingBottom()) {
+            $box += ['paddingBottom' => $paddingBottom];
+        }
+        if ($paddingStart = $flexBox->getPaddingStart()) {
+            $box += ['paddingStart' => $paddingStart];
+        }
+        if ($paddingEnd = $flexBox->getPaddingEnd()) {
+            $box += ['paddingEnd' => $paddingEnd];
+        }
+        if ($position = $flexBox->getPosition()) {
+            $box += ['position' => $position->getType()];
+        }
+        if ($offsetTop = $flexBox->getOffsetTop()) {
+            $box += ['offsetTop' => $offsetTop];
+        }
+        if ($offsetBottom = $flexBox->getOffsetBottom()) {
+            $box += ['offsetBottom' => $offsetBottom];
+        }
+        if ($offsetStart = $flexBox->getOffsetStart()) {
+            $box += ['offsetStart' => $offsetStart];
+        }
+        if ($offsetEnd = $flexBox->getOffsetEnd()) {
+            $box += ['offsetEnd' => $offsetEnd];
         }
         if ($action = $flexBox->getAction()) {
             $box += ['action' => static::generateActionBuilder($action)->buildTemplateAction()];
@@ -481,6 +543,13 @@ class LineFacade
         if ($text = $flexComponent->getText()) {
             $content += ['text' => (string)$text];
         }
+        if ($spanComponents = $flexComponent->getContents()) {
+            $spans = [];
+            foreach ($spanComponents as $spanComponent) {
+                $spans[] = static::buildFlexSpanComponent($spanComponent);
+            }
+            $content += ['contents' => $spans];
+        }
         if ($flex = $flexComponent->getFlex()) {
             $content += ['flex' => $flex];
         }
@@ -510,6 +579,45 @@ class LineFacade
         }
         if ($action = $flexComponent->getAction()) {
             $content += ['action' => static::generateActionBuilder($action)->buildTemplateAction()];
+        }
+        if ($style = $flexComponent->getStyle()) {
+            $content += ['style' => $style->getType()];
+        }
+        if ($decoration = $flexComponent->getDecoration()) {
+            $content += ['decoration' => $decoration->getType()];
+        }
+
+        return $content;
+    }
+
+    /**
+     * @param FlexComponentInterface|FlexSpan $flexComponent
+     *
+     * @return array
+     *
+     * @see https://developers.line.me/ja/reference/messaging-api/#f-text
+     */
+    private static function buildFlexSpanComponent($flexComponent)
+    {
+        $content = ['type' => 'span'];
+
+        if ($text = $flexComponent->getText()) {
+            $content += ['text' => (string)$text];
+        }
+        if ($color = $flexComponent->getColor()) {
+            $content += ['color' => $color->getType()];
+        }
+        if ($size = $flexComponent->getSize()) {
+            $content += ['size' => $size->getType()];
+        }
+        if ($weight = $flexComponent->getWeight()) {
+            $content += ['weight' => $weight->getType()];
+        }
+        if ($style = $flexComponent->getStyle()) {
+            $content += ['style' => $style->getType()];
+        }
+        if ($decoration = $flexComponent->getDecoration()) {
+            $content += ['decoration' => $decoration->getType()];
         }
 
         return $content;

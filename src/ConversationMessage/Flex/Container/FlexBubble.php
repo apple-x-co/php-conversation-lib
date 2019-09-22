@@ -9,14 +9,19 @@
 namespace Conversation\ConversationMessage\Flex\Container;
 
 
+use Conversation\AbstractConversationAction;
 use Conversation\ConversationMessage\Flex\Component\FlexBox;
 use Conversation\ConversationMessage\Flex\Component\FlexImage;
 use Conversation\ConversationMessage\Flex\Property\FlexBubbleDirection;
+use Conversation\ConversationMessage\Flex\Property\FlexBubbleSize;
 
 class FlexBubble implements FlexContainerInterface
 {
     /** @var FlexContainerType */
     private $type;
+
+    /** @var FlexBubbleSize */
+    private $size;
 
     /** @var FlexBubbleDirection */
     private $direction;
@@ -24,7 +29,7 @@ class FlexBubble implements FlexContainerInterface
     /** @var FlexBox */
     private $header;
 
-    /** @var FlexImage */
+    /** @var FlexImage|FlexBox */
     private $hero;
 
     /** @var FlexBox */
@@ -36,15 +41,20 @@ class FlexBubble implements FlexContainerInterface
     /** @var FlexBubbleStyle */
     private $styles;
 
+    /** @var AbstractConversationAction */
+    private $action;
+
     public function __construct()
     {
         $this->type = new FlexContainerType(FlexContainerType::BUBBLE);
+        $this->size = new FlexBubbleSize(FlexBubbleSize::MEGA);
         $this->direction = new FlexBubbleDirection(FlexBubbleDirection::LTR);
         $this->header = null;
         $this->hero = null;
         $this->body = null;
         $this->footer = null;
         $this->styles = null;
+        $this->action = null;
     }
 
     /**
@@ -53,6 +63,26 @@ class FlexBubble implements FlexContainerInterface
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * @return FlexBubbleSize
+     */
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param FlexBubbleSize $size
+     *
+     * @return self
+     */
+    public function setSize($size)
+    {
+        $this->size = $size;
+
+        return $this;
     }
 
     /**
@@ -94,7 +124,7 @@ class FlexBubble implements FlexContainerInterface
     }
 
     /**
-     * @return FlexImage
+     * @return FlexImage|FlexBox
      */
     public function getHero()
     {
@@ -102,7 +132,7 @@ class FlexBubble implements FlexContainerInterface
     }
 
     /**
-     * @param FlexImage $hero
+     * @param FlexImage|FlexBox $hero
      *
      * @return self
      */
@@ -167,5 +197,21 @@ class FlexBubble implements FlexContainerInterface
     {
         $this->styles = $styles;
         return $this;
+    }
+
+    /**
+     * @return AbstractConversationAction
+     */
+    public function getAction()
+    {
+        return $this->action;
+    }
+
+    /**
+     * @param AbstractConversationAction $action
+     */
+    public function setAction($action)
+    {
+        $this->action = $action;
     }
 }
