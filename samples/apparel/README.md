@@ -1,6 +1,6 @@
 # Sample - Apparel
 
-![example1](./image.jpg) 
+![apparel](./image.jpg) 
 
 ```php
 $carousel = new FlexCarousel();

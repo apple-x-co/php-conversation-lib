@@ -1,6 +1,6 @@
 # Sample - Restaurant
 
-![example1](./image.jpg) 
+![restaurant](./image.jpg) 
 
 ```php
 $bubble = new FlexBubble();

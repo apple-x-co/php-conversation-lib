@@ -258,7 +258,7 @@ $configure = Configure::getInstance(getenv('CONVERSATION_CONFIG_PATH'));
 $assistant = ConversationAssistantFactory::create($configure);
 $response = $assistant->push(
     new ConversationFlexMessage(
-        'Restaurant',
+        'Apparel',
         $carousel
     ),
     getenv('LINE_ID')

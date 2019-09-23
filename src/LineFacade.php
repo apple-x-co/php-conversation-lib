@@ -661,6 +661,21 @@ class LineFacade
         if ($margin = $flexImage->getMargin()) {
             $content += ['margin' => $margin->getType()];
         }
+        if ($position = $flexImage->getPosition()) {
+            $content += ['position' => $position->getType()];
+        }
+        if ($offsetTop = $flexImage->getOffsetTop()) {
+            $content += ['offsetTop' => $offsetTop];
+        }
+        if ($offsetBottom = $flexImage->getOffsetBottom()) {
+            $content += ['offsetBottom' => $offsetBottom];
+        }
+        if ($offsetStart = $flexImage->getOffsetStart()) {
+            $content += ['offsetStart' => $offsetStart];
+        }
+        if ($offsetEnd = $flexImage->getOffsetEnd()) {
+            $content += ['offsetEnd' => $offsetEnd];
+        }
         if ($align = $flexImage->getAlign()) {
             $content += ['align' => $align->getType()];
         }

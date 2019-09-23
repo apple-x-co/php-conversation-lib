@@ -17,6 +17,7 @@ use Conversation\ConversationMessage\Flex\Property\FlexImageAspectMode;
 use Conversation\ConversationMessage\Flex\Property\FlexImageAspectRatio;
 use Conversation\ConversationMessage\Flex\Property\FlexImageSize;
 use Conversation\ConversationMessage\Flex\Property\FlexMargin;
+use Conversation\ConversationMessage\Flex\Property\FlexPosition;
 use Conversation\URL;
 
 class FlexImage implements FlexComponentInterface
@@ -32,6 +33,21 @@ class FlexImage implements FlexComponentInterface
 
     /** @var FlexMargin */
     private $margin;
+
+    /** @var FlexPosition */
+    private $position;
+
+    /** @var string */
+    private $offsetTop;
+
+    /** @var string */
+    private $offsetBottom;
+
+    /** @var string */
+    private $offsetStart;
+
+    /** @var string */
+    private $offsetEnd;
 
     /** @var FlexAlign */
     private $align;
@@ -135,6 +151,106 @@ class FlexImage implements FlexComponentInterface
     public function setMargin($margin)
     {
         $this->margin = $margin;
+        return $this;
+    }
+
+    /**
+     * @return FlexPosition
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param FlexPosition $position
+     *
+     * @return self
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOffsetTop()
+    {
+        return $this->offsetTop;
+    }
+
+    /**
+     * @param string $offsetTop
+     *
+     * @return self
+     */
+    public function setOffsetTop($offsetTop)
+    {
+        $this->offsetTop = $offsetTop;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOffsetBottom()
+    {
+        return $this->offsetBottom;
+    }
+
+    /**
+     * @param string $offsetBottom
+     *
+     * @return self
+     */
+    public function setOffsetBottom($offsetBottom)
+    {
+        $this->offsetBottom = $offsetBottom;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOffsetStart()
+    {
+        return $this->offsetStart;
+    }
+
+    /**
+     * @param string $offsetStart
+     *
+     * @return self
+     */
+    public function setOffsetStart($offsetStart)
+    {
+        $this->offsetStart = $offsetStart;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOffsetEnd()
+    {
+        return $this->offsetEnd;
+    }
+
+    /**
+     * @param string $offsetEnd
+     *
+     * @return self
+     */
+    public function setOffsetEnd($offsetEnd)
+    {
+        $this->offsetEnd = $offsetEnd;
+
         return $this;
     }
 
