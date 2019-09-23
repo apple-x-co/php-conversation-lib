@@ -13,3 +13,6 @@
 
 * [Local search](./local-search/README.md)
 <img src="./local-search/image.jpg" width="100px">
+
+* [Real estate](./real-estate/README.md)
+<img src="./real-estate/image.jpg" width="100px">
