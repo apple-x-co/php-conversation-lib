@@ -10,3 +10,6 @@
 
 * [Hotel](./hotel/README.md)
 <img src="./hotel/image.jpg" width="100px">
+
+* [Local search](./local-search/README.md)
+<img src="./local-search/image.jpg" width="100px">
