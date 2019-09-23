@@ -145,13 +145,13 @@ class FlexText implements FlexComponentInterface
     }
 
     /**
-     * @param FlexSpan[] $contents
+     * @param FlexSpan $content
      *
      * @return self
      */
-    public function setContents($contents)
+    public function addContent($content)
     {
-        $this->contents = $contents;
+        $this->contents[] = $content;
 
         return $this;
     }
