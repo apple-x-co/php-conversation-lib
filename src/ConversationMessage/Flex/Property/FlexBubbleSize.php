@@ -41,7 +41,7 @@ class FlexBubbleSize implements FlexPropertyInterface
     /**
      * @return FlexBubbleSize
      */
-    public static function naon()
+    public static function nano()
     {
         return new static(static::NANO);
     }

@@ -99,6 +99,16 @@ class FlexText implements FlexComponentInterface
     }
 
     /**
+     * @param string $text
+     *
+     * @return self
+     */
+    public static function text($text)
+    {
+        return (new self)->setText($text);
+    }
+
+    /**
      * @return FlexComponentType
      */
     public function getComponentType()

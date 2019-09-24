@@ -111,6 +111,30 @@ class FlexBox implements FlexComponentInterface
     }
 
     /**
+     * @return self
+     */
+    public static function horizontal()
+    {
+        return new self();
+    }
+
+    /**
+     * @return self
+     */
+    public static function vertical()
+    {
+        return (new self())->setLayout(new FlexLayout(FlexLayout::VERTICAL));
+    }
+
+    /**
+     * @return self
+     */
+    public static function baseline()
+    {
+        return (new self())->setLayout(new FlexLayout(FlexLayout::BASELINE));
+    }
+
+    /**
      * @return FlexComponentType
      */
     public function getComponentType()
