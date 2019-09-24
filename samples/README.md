@@ -1,6 +1,8 @@
 # Samples
 
-## Flex
+## Flex Message
+
+Ref: `https://developers.line.biz/console/fx/`
 
 * [Restaurant](./restaurant/README.md)
 <img src="./restaurant/image.jpg" width="100px">
