@@ -28,6 +28,55 @@ class FlexSpacer implements FlexComponentInterface
     }
 
     /**
+     * @return self
+     */
+    public static function xs()
+    {
+        return (new self())->setSize(FlexSpacerSize::xs());
+    }
+
+    /**
+     * @return self
+     */
+    public static function sm()
+    {
+        return (new self())->setSize(FlexSpacerSize::sm());
+    }
+
+    /**
+     * @return self
+     */
+    public static function md()
+    {
+        return (new self())->setSize(FlexSpacerSize::md());
+    }
+
+
+    /**
+     * @return self
+     */
+    public static function lg()
+    {
+        return (new self())->setSize(FlexSpacerSize::lg());
+    }
+
+    /**
+     * @return self
+     */
+    public static function xl()
+    {
+        return (new self())->setSize(FlexSpacerSize::xl());
+    }
+
+    /**
+     * @return self
+     */
+    public static function xxl()
+    {
+        return (new self())->setSize(FlexSpacerSize::xxl());
+    }
+
+    /**
      * @return FlexComponentType
      */
     public function getComponentType()

@@ -36,3 +36,6 @@ Ref: `https://developers.line.biz/console/fx/`
 
 * [Shopping](./shopping/README.md)
 <img src="./shopping/image.jpg" width="100px">
+
+* [Menu](./menu/README.md)
+<img src="./menu/image.jpg" width="100px">
