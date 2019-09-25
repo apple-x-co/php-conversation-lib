@@ -27,3 +27,6 @@ Ref: `https://developers.line.biz/console/fx/`
 
 * [Transit](./transit/README.md)
 <img src="./transit/image.jpg" width="100px">
+
+* [Receipt](./receipt/README.md)
+<img src="./receipt/image.jpg" width="100px">
