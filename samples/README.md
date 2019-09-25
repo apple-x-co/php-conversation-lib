@@ -30,3 +30,6 @@ Ref: `https://developers.line.biz/console/fx/`
 
 * [Receipt](./receipt/README.md)
 <img src="./receipt/image.jpg" width="100px">
+
+* [News](./news/README.md)
+<img src="./news/image.jpg" width="100px">
