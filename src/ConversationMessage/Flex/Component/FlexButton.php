@@ -51,6 +51,30 @@ class FlexButton implements FlexComponentInterface
     }
 
     /**
+     * @return self
+     */
+    public static function link()
+    {
+        return (new self())->setStyle(FlexButtonStyle::link());
+    }
+
+    /**
+     * @return self
+     */
+    public static function primary()
+    {
+        return (new self())->setStyle(FlexButtonStyle::primary());
+    }
+
+    /**
+     * @return self
+     */
+    public static function secondary()
+    {
+        return (new self())->setStyle(FlexButtonStyle::secondary());
+    }
+
+    /**
      * @return FlexComponentType
      */
     public function getComponentType()

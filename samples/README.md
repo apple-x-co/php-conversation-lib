@@ -33,3 +33,6 @@ Ref: `https://developers.line.biz/console/fx/`
 
 * [News](./news/README.md)
 <img src="./news/image.jpg" width="100px">
+
+* [Shopping](./shopping/README.md)
+<img src="./shopping/image.jpg" width="100px">

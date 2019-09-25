@@ -79,6 +79,17 @@ class FlexImage implements FlexComponentInterface
     }
 
     /**
+     * @param string $url
+     *
+     * @return self
+     * @throws \Conversation\Exception\ConversationException
+     */
+    public static function image($url)
+    {
+        return (new self())->setUrl(new URL($url));
+    }
+
+    /**
      * @return FlexComponentType
      */
     public function getComponentType()
