@@ -8,28 +8,20 @@ use Conversation\ConversationAssistantFactory;
 use Conversation\ConversationMessage\ConversationFlexMessage;
 use Conversation\ConversationMessage\Flex\Component\FlexBox;
 use Conversation\ConversationMessage\Flex\Component\FlexButton;
-use Conversation\ConversationMessage\Flex\Component\FlexIcon;
 use Conversation\ConversationMessage\Flex\Component\FlexImage;
-use Conversation\ConversationMessage\Flex\Component\FlexSpacer;
 use Conversation\ConversationMessage\Flex\Component\FlexText;
 use Conversation\ConversationMessage\Flex\Container\FlexBubble;
 use Conversation\ConversationMessage\Flex\Container\FlexCarousel;
-use Conversation\ConversationMessage\Flex\Property\FlexButtonHeight;
-use Conversation\ConversationMessage\Flex\Property\FlexButtonStyle;
 use Conversation\ConversationMessage\Flex\Property\FlexColor;
 use Conversation\ConversationMessage\Flex\Property\FlexFontSize;
 use Conversation\ConversationMessage\Flex\Property\FlexFontWeight;
 use Conversation\ConversationMessage\Flex\Property\FlexGravity;
-use Conversation\ConversationMessage\Flex\Property\FlexIconSize;
 use Conversation\ConversationMessage\Flex\Property\FlexImageAspectMode;
 use Conversation\ConversationMessage\Flex\Property\FlexImageAspectRatio;
 use Conversation\ConversationMessage\Flex\Property\FlexImageSize;
-use Conversation\ConversationMessage\Flex\Property\FlexLayout;
 use Conversation\ConversationMessage\Flex\Property\FlexMargin;
-use Conversation\ConversationMessage\Flex\Property\FlexSpacerSize;
 use Conversation\ConversationMessage\Flex\Property\FlexSpacing;
 use Conversation\URI;
-use Conversation\URL;
 
 $bubble = new FlexBubble();
 $bubble

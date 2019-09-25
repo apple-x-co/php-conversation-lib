@@ -7,8 +7,6 @@ use Conversation\ConversationAssistantFactory;
 use Conversation\ConversationMessage\ConversationFlexMessage;
 use Conversation\ConversationMessage\Flex\Component\FlexBox;
 use Conversation\ConversationMessage\Flex\Component\FlexFiller;
-use Conversation\ConversationMessage\Flex\Component\FlexImage;
-use Conversation\ConversationMessage\Flex\Component\FlexSpan;
 use Conversation\ConversationMessage\Flex\Component\FlexText;
 use Conversation\ConversationMessage\Flex\Container\FlexBubble;
 use Conversation\ConversationMessage\Flex\Property\FlexBorderWidth;
@@ -16,13 +14,8 @@ use Conversation\ConversationMessage\Flex\Property\FlexColor;
 use Conversation\ConversationMessage\Flex\Property\FlexFontSize;
 use Conversation\ConversationMessage\Flex\Property\FlexFontWeight;
 use Conversation\ConversationMessage\Flex\Property\FlexGravity;
-use Conversation\ConversationMessage\Flex\Property\FlexImageAspectMode;
-use Conversation\ConversationMessage\Flex\Property\FlexImageAspectRatio;
-use Conversation\ConversationMessage\Flex\Property\FlexImageSize;
-use Conversation\ConversationMessage\Flex\Property\FlexLayout;
 use Conversation\ConversationMessage\Flex\Property\FlexMargin;
 use Conversation\ConversationMessage\Flex\Property\FlexSpacing;
-use Conversation\URL;
 
 $bubble =
     FlexBubble::mega()
