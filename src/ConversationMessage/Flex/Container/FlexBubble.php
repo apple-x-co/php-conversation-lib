@@ -58,6 +58,46 @@ class FlexBubble implements FlexContainerInterface
     }
 
     /**
+     * @return self
+     */
+    public static function nano()
+    {
+        return (new self)->setSize(new FlexBubbleSize(FlexBubbleSize::NANO));
+    }
+
+    /**
+     * @return self
+     */
+    public static function micro()
+    {
+        return (new self)->setSize(new FlexBubbleSize(FlexBubbleSize::MICRO));
+    }
+
+    /**
+     * @return self
+     */
+    public static function kilo()
+    {
+        return (new self)->setSize(new FlexBubbleSize(FlexBubbleSize::KILO));
+    }
+
+    /**
+     * @return self
+     */
+    public static function mega()
+    {
+        return (new self)->setSize(new FlexBubbleSize(FlexBubbleSize::MEGA));
+    }
+
+    /**
+     * @return self
+     */
+    public static function giga()
+    {
+        return (new self)->setSize(new FlexBubbleSize(FlexBubbleSize::GIGA));
+    }
+
+    /**
      * @return FlexContainerType
      */
     public function getType()
